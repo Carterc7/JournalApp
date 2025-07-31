@@ -20,6 +20,8 @@ public class EditModel : PageModel
     [BindProperty]
     public JournalPost? JournalPost { get; set; }
 
+    // framework looks for and calls this method when a get request is made to the page
+    // the id is passed in the url
     public async Task<IActionResult> OnGetAsync(int id)
     {
         try

@@ -4,43 +4,76 @@
     ViewData["Title"] = Model.JournalPost?.Title ?? "Journal Entry";
 }
 
-<div class="container mt-4">
+<div class="container mt-4 fade-in">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-lg-8">
             @if (Model.JournalPost != null)
             {
-                <div class="card shadow">
+                <div class="card">
                     <div class="card-header">
                         <div class="d-flex justify-content-between align-items-center">
                             <h1 class="h2 mb-0">@Model.JournalPost.Title</h1>
-                            <div class="btn-group" role="group">
-                                <a href="/Journal/Edit/@Model.JournalPost.Id" class="btn btn-outline-secondary btn-sm">Edit</a>
-                                <a href="/Journal/Delete/@Model.JournalPost.Id" class="btn btn-outline-danger btn-sm">Delete</a>
+                            <div class="d-flex gap-2">
+                                <a href="/Journal/Edit/@Model.JournalPost.Id" class="btn btn-light btn-sm">
+                                    <i class="bi bi-pencil me-1"></i>Edit
+                                </a>
+                                <a href="/Journal/Delete/@Model.JournalPost.Id" class="btn btn-outline-danger btn-sm">
+                                    <i class="bi bi-trash me-1"></i>Delete
+                                </a>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="mb-3">
-                            <small class="text-muted">
-                                Created: @Model.JournalPost.DateCreated.ToString("MM/dd/yyyy")
-                            </small>
+                        <div class="journal-meta mb-4">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <span class="badge bg-light text-dark me-2">
+                                        <i class="bi bi-calendar3 me-1"></i>Created: @Model.JournalPost.DateCreated.ToString("MMMM dd, yyyy 'at' h:mm tt")
+                                    </span>
+                                </div>
+                                @if (Model.JournalPost.DateModified != Model.JournalPost.DateCreated)
+                                {
+                                    <div class="col-md-6">
+                                        <span class="badge bg-light text-dark">
+                                            <i class="bi bi-pencil me-1"></i>Edited: @Model.JournalPost.DateModified.ToString("MMMM dd, yyyy 'at' h:mm tt")
+                                        </span>
+                                    </div>
+                                }
+                            </div>
                         </div>
                         
                         <div class="journal-content">
-                            @Model.JournalPost.Content
+                            <div class="content-text">
+                                @Html.Raw(Model.JournalPost.Content.Replace("\n", "<br>"))
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="/Journal" class="btn btn-primary">← Back to Journal</a>
+                        
+                        <hr class="my-4">
+                        
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="/Journal" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left me-1"></i>Back to Journal
+                            </a>
+                            <div class="d-flex gap-2">
+                                <a href="/Journal/Edit/@Model.JournalPost.Id" class="btn btn-primary">
+                                    <i class="bi bi-pencil me-1"></i>Edit Entry
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             }
             else
             {
-                <div class="alert alert-warning">
-                    <h4>Journal Entry Not Found</h4>
-                    <p>The journal entry you're looking for doesn't exist or has been deleted.</p>
-                    <a href="/Journal" class="btn btn-primary">← Back to Journal</a>
+                <div class="card">
+                    <div class="card-body text-center py-5">
+                        <i class="bi bi-exclamation-triangle display-1 text-warning mb-4"></i>
+                        <h3 class="text-muted mb-3">Journal Entry Not Found</h3>
+                        <p class="text-muted mb-4">The journal entry you're looking for doesn't exist or has been deleted.</p>
+                        <a href="/Journal" class="btn btn-primary">
+                            <i class="bi bi-arrow-left me-1"></i>Back to Journal
+                        </a>
+                    </div>
                 </div>
             }
         </div>
@@ -48,9 +81,13 @@
 </div>
 
 <style>
-    .journal-content {
-        line-height: 1.8;
-        font-size: 1.1rem;
-        white-space: pre-wrap;
-    }
+.content-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--dark-text);
+}
+
+.content-text br {
+    margin-bottom: 0.5rem;
+}
 </style> 

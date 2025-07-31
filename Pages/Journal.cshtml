@@ -1,41 +1,61 @@
 @page
 @model JournalModel
 @{
-    ViewData["Title"] = "Home";
+    ViewData["Title"] = "My Journal";
 }
 
-<div class="container mt-4">
+<div class="container mt-4 fade-in">
     <div class="row">
         <div class="col-12">
             <div class="d-flex justify-content-between align-items-center mb-4">
-                <h1 class="display-4">My Journal</h1>
-                <a href="/Journal/Create" class="btn btn-primary">
-                    <i class="bi bi-plus-circle"></i> New Entry
+                <div>
+                    <h1 class="display-4 fw-bold text-primary mb-2">My Journal</h1>
+                    <p class="text-muted fs-5">Capture your thoughts, experiences, and memories</p>
+                </div>
+                <a href="/Journal/Create" class="btn btn-primary btn-lg">
+                    <i class="bi bi-plus-circle me-2"></i>New Entry
                 </a>
             </div>
-            
+
             @if (Model.JournalPosts != null && Model.JournalPosts.Any())
             {
                 <div class="row">
-                    @foreach (var post in Model.JournalPosts.OrderByDescending(p => p.DateCreated))
+                    @foreach (var post in Model.JournalPosts.OrderByDescending(p => p.DateModified))
                     {
-                        <div class="col-md-6 col-lg-4 mb-4">
-                            <div class="card h-100 shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title">@post.Title</h5>
-                                    <p class="card-text text-muted">
-                                        @(post.Content.Length > 150 ? post.Content.Substring(0, 150) + "..." : post.Content)
-                                    </p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="text-muted">
-                                            @post.DateCreated.ToString("MMM dd, yyyy")
-                                        </small>
-                                        <div class="btn-group" role="group">
-                                            <a href="/Journal/View/@post.Id" class="btn btn-outline-primary btn-sm">View</a>
-                                            <a href="/Journal/Edit/@post.Id" class="btn btn-outline-secondary btn-sm">Edit</a>
-                                            <a href="/Journal/Delete/@post.Id" class="btn btn-outline-danger btn-sm">Delete</a>
-                                        </div>
-                                    </div>
+                        <div class="col-lg-6 col-xl-4 mb-4">
+                            <div class="journal-entry h-100">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h3 class="journal-title mb-0">@post.Title</h3>
+                                    <span class="badge badge-primary">@post.DateCreated.ToString("MMM dd")</span>
+                                </div>
+                                
+                                <div class="journal-content">
+                                    @{
+                                        var preview = post.Content.Length > 150 
+                                            ? post.Content.Substring(0, 150) + "..." 
+                                            : post.Content;
+                                    }
+                                    @preview
+                                </div>
+                                
+                                <div class="journal-meta mb-3">
+                                    <span><i class="bi bi-calendar3 me-1"></i>@post.DateCreated.ToString("MMMM dd, yyyy")</span>
+                                    @if (post.DateModified != post.DateCreated)
+                                    {
+                                        <span><i class="bi bi-pencil me-1"></i>Edited @post.DateModified.ToString("MMM dd")</span>
+                                    }
+                                </div>
+                                
+                                <div class="journal-actions">
+                                    <a href="/Journal/View/@post.Id" class="btn btn-primary btn-sm">
+                                        <i class="bi bi-eye me-1"></i>View
+                                    </a>
+                                    <a href="/Journal/Edit/@post.Id" class="btn btn-secondary btn-sm">
+                                        <i class="bi bi-pencil me-1"></i>Edit
+                                    </a>
+                                    <a href="/Journal/Delete/@post.Id" class="btn btn-outline-danger btn-sm">
+                                        <i class="bi bi-trash me-1"></i>Delete
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -44,10 +64,17 @@
             }
             else
             {
-                <div class="alert alert-info">
-                    <h4>No journal entries found</h4>
-                    <p>Your journal is empty. Start writing your first entry!</p>
-                    <a href="/Journal/Create" class="btn btn-primary">Create Your First Entry</a>
+                <div class="text-center py-5">
+                    <div class="card">
+                        <div class="card-body py-5">
+                            <i class="bi bi-journal-text display-1 text-muted mb-4"></i>
+                            <h3 class="text-muted mb-3">No Journal Entries Yet</h3>
+                            <p class="text-muted mb-4">Start your journaling journey by creating your first entry.</p>
+                            <a href="/Journal/Create" class="btn btn-primary btn-lg">
+                                <i class="bi bi-plus-circle me-2"></i>Create Your First Entry
+                            </a>
+                        </div>
+                    </div>
                 </div>
             }
         </div>

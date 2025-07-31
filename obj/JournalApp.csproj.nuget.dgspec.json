@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lawso\\MyFirstWebApp\\JournalApp.csproj": {}
+    "C:\\Users\\lawso\\JournalApp\\JournalApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lawso\\MyFirstWebApp\\JournalApp.csproj": {
+    "C:\\Users\\lawso\\JournalApp\\JournalApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lawso\\MyFirstWebApp\\JournalApp.csproj",
+        "projectUniqueName": "C:\\Users\\lawso\\JournalApp\\JournalApp.csproj",
         "projectName": "JournalApp",
-        "projectPath": "C:\\Users\\lawso\\MyFirstWebApp\\JournalApp.csproj",
+        "projectPath": "C:\\Users\\lawso\\JournalApp\\JournalApp.csproj",
         "packagesPath": "C:\\Users\\lawso\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lawso\\MyFirstWebApp\\obj\\",
+        "outputPath": "C:\\Users\\lawso\\JournalApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lawso\\AppData\\Roaming\\NuGet\\NuGet.Config"
