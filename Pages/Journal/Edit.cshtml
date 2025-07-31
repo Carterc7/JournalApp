@@ -1,0 +1,61 @@
+@page "{id:int}"
+@model EditModel
+@{
+    ViewData["Title"] = "Edit Journal Entry";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            @if (Model.JournalPost != null)
+            {
+                <div class="card shadow">
+                    <div class="card-header">
+                        <h2 class="mb-0">Edit Journal Entry</h2>
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            <input type="hidden" asp-for="JournalPost.Id" />
+                            <input type="hidden" asp-for="JournalPost.DateCreated" />
+                            
+                            <div class="mb-3">
+                                <label asp-for="JournalPost.Title" class="form-label">Title</label>
+                                <input asp-for="JournalPost.Title" class="form-control" placeholder="Enter your journal entry title..." />
+                                <span asp-validation-for="JournalPost.Title" class="text-danger"></span>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label asp-for="JournalPost.Content" class="form-label">Content</label>
+                                <textarea asp-for="JournalPost.Content" class="form-control" rows="10" placeholder="Write your thoughts here..."></textarea>
+                                <span asp-validation-for="JournalPost.Content" class="text-danger"></span>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <small class="text-muted">
+                                    Created: @Model.JournalPost.DateCreated.ToString("MMMM dd, yyyy 'at' h:mm tt")
+                                </small>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between">
+                                <a href="/Journal/View/@Model.JournalPost.Id" class="btn btn-secondary">Cancel</a>
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-warning">
+                    <h4>Journal Entry Not Found</h4>
+                    <p>The journal entry you're trying to edit doesn't exist or has been deleted.</p>
+                    <a href="/Journal" class="btn btn-primary">← Back to Journal</a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+} 

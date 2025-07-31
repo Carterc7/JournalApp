@@ -1,0 +1,55 @@
+@page
+@model JournalModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="display-4">My Journal</h1>
+                <a href="/Journal/Create" class="btn btn-primary">
+                    <i class="bi bi-plus-circle"></i> New Entry
+                </a>
+            </div>
+            
+            @if (Model.JournalPosts != null && Model.JournalPosts.Any())
+            {
+                <div class="row">
+                    @foreach (var post in Model.JournalPosts.OrderByDescending(p => p.DateCreated))
+                    {
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">@post.Title</h5>
+                                    <p class="card-text text-muted">
+                                        @(post.Content.Length > 150 ? post.Content.Substring(0, 150) + "..." : post.Content)
+                                    </p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small class="text-muted">
+                                            @post.DateCreated.ToString("MMM dd, yyyy")
+                                        </small>
+                                        <div class="btn-group" role="group">
+                                            <a href="/Journal/View/@post.Id" class="btn btn-outline-primary btn-sm">View</a>
+                                            <a href="/Journal/Edit/@post.Id" class="btn btn-outline-secondary btn-sm">Edit</a>
+                                            <a href="/Journal/Delete/@post.Id" class="btn btn-outline-danger btn-sm">Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-info">
+                    <h4>No journal entries found</h4>
+                    <p>Your journal is empty. Start writing your first entry!</p>
+                    <a href="/Journal/Create" class="btn btn-primary">Create Your First Entry</a>
+                </div>
+            }
+        </div>
+    </div>
+</div> 

@@ -1,0 +1,41 @@
+@page
+@model CreateModel
+@{
+    ViewData["Title"] = "Create New Journal Entry";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header">
+                    <h2 class="mb-0">Create New Journal Entry</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div class="mb-3">
+                            <label asp-for="JournalPost.Title" class="form-label">Title</label>
+                            <input asp-for="JournalPost.Title" class="form-control" placeholder="Enter your journal entry title..." />
+                            <span asp-validation-for="JournalPost.Title" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label asp-for="JournalPost.Content" class="form-label">Content</label>
+                            <textarea asp-for="JournalPost.Content" class="form-control" rows="10" placeholder="Write your thoughts here..."></textarea>
+                            <span asp-validation-for="JournalPost.Content" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between">
+                            <a href="/Journal" class="btn btn-secondary">Cancel</a>
+                            <button type="submit" class="btn btn-primary">Create Entry</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+} 
