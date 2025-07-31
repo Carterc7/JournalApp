@@ -1,8 +1,6 @@
 # 📖 JournalApp
 
-A beautiful, modern personal journaling web application built with ASP.NET Core and Entity Framework. Capture your thoughts, experiences, and memories with an intuitive and elegant interface.
-
-![JournalApp Screenshot](https://via.placeholder.com/800x400/6366f1/ffffff?text=JournalApp+Preview)
+A modern personal journaling web application built with ASP.NET Core and Entity Framework. Capture your thoughts, experiences, and memories with an intuitive and elegant interface.
 
 ## ✨ Features
 
@@ -10,9 +8,6 @@ A beautiful, modern personal journaling web application built with ASP.NET Core 
 - **👁️ View**: Read your entries with beautiful formatting and metadata display
 - **🗑️ Delete**: Safely remove entries with confirmation dialogs
 - **📱 Responsive Design**: Works perfectly on desktop, tablet, and mobile devices
-- **🎨 Modern UI**: Clean, intuitive interface with smooth animations
-- **💾 Persistent Storage**: All entries are saved to a SQL Server database
-- **🔄 Real-time Updates**: See changes immediately across all pages
 
 ## 🛠️ Technology Stack
 
@@ -84,25 +79,6 @@ JournalApp/
 └── Program.cs                      # Application entry point
 ```
 
-## 🎨 Design Features
-
-### Color Scheme
-- **Primary**: Indigo (#6366f1) with purple (#8b5cf6) accents
-- **Background**: Subtle gradient from light gray to white
-- **Journal Entries**: Light slate background for better contrast
-- **Success/Error**: Emerald green and red for status indicators
-
-### Interactive Elements
-- **Hover Effects**: Cards lift and shadows change on hover
-- **Smooth Transitions**: All interactions have 0.3s ease transitions
-- **Form Focus**: Input fields have subtle animations when focused
-- **Button Animations**: Buttons lift slightly on hover
-
-### Responsive Design
-- **Mobile-First**: Optimized for all screen sizes
-- **Flexible Layout**: Cards adapt to different viewport widths
-- **Touch-Friendly**: Large touch targets for mobile devices
-
 ## 🔧 Configuration
 
 ### Database Connection
@@ -116,11 +92,6 @@ Update the connection string in `appsettings.json`:
 }
 ```
 
-### Customization
-- **Colors**: Modify CSS variables in `wwwroot/css/site.css`
-- **Styling**: Update Bootstrap classes and custom CSS
-- **Functionality**: Extend models and add new features
-
 ## 📝 Usage
 
 ### Creating a Journal Entry
@@ -133,10 +104,6 @@ Update the connection string in `appsettings.json`:
 - **Edit**: Click "Edit" to modify an existing entry
 - **Delete**: Click "Delete" and confirm to remove an entry
 
-### Navigation
-- Use the navbar to quickly access different sections
-- Breadcrumb navigation helps you know where you are
-- All pages have clear "Back" buttons
 
 ## 🤝 Contributing
 
@@ -148,26 +115,8 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- [ASP.NET Core](https://dotnet.microsoft.com/apps/aspnet) for the robust web framework
-- [Bootstrap](https://getbootstrap.com/) for the responsive UI components
-- [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/) for data access
-- [Bootstrap Icons](https://icons.getbootstrap.com/) for the beautiful icons
-
-## 📞 Support
-
-If you have any questions or need help, please:
-- Open an [Issue](https://github.com/Carterc7/JournalApp/issues)
-- Check the [Wiki](https://github.com/Carterc7/JournalApp/wiki) for documentation
-- Contact the maintainer
-
 ---
 
 **Made with ❤️ by [Carterc7](https://github.com/Carterc7)**
 
-*Start your journaling journey today!* 
+*Start your journaling journey today!*
