@@ -17,6 +17,8 @@ public class EditModel : PageModel
         _logger = logger;
     }
 
+    // allows us to bind the form data to the JournalPost object
+    // prevents us from having to manually map the form data to the JournalPost object
     [BindProperty]
     public JournalPost? JournalPost { get; set; }
 
