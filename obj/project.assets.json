@@ -4716,9 +4716,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lawso\\MyFirstWebApp\\MyFirstWebApp.csproj",
-      "projectName": "MyFirstWebApp",
-      "projectPath": "C:\\Users\\lawso\\MyFirstWebApp\\MyFirstWebApp.csproj",
+      "projectUniqueName": "C:\\Users\\lawso\\MyFirstWebApp\\JournalApp.csproj",
+      "projectName": "JournalApp",
+      "projectPath": "C:\\Users\\lawso\\MyFirstWebApp\\JournalApp.csproj",
       "packagesPath": "C:\\Users\\lawso\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\lawso\\MyFirstWebApp\\obj\\",
       "projectStyle": "PackageReference",

@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using MyFirstWebApp.Data;
+using JournalApp.Data;
 
 // application builder setup
 var builder = WebApplication.CreateBuilder(args);
@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 
 // Add Entity Framework services
-builder.Services.AddDbContext<MyFirstWebApp.Data.ApplicationDbContext>(options =>
+builder.Services.AddDbContext<JournalApp.Data.ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();

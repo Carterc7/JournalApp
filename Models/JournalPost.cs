@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace MyFirstWebApp.Models;
+namespace JournalApp.Models;
 
 public class JournalPost
 {

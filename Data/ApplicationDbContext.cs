@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using MyFirstWebApp.Models;
+using JournalApp.Models;
 
-namespace MyFirstWebApp.Data;
+namespace JournalApp.Data;
 
 public class ApplicationDbContext : DbContext
 {

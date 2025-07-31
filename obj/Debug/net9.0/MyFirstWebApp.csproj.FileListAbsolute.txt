@@ -226,3 +226,4 @@ C:\Users\lawso\MyFirstWebApp\obj\Debug\net9.0\refint\MyFirstWebApp.dll
 C:\Users\lawso\MyFirstWebApp\obj\Debug\net9.0\MyFirstWebApp.pdb
 C:\Users\lawso\MyFirstWebApp\obj\Debug\net9.0\MyFirstWebApp.genruntimeconfig.cache
 C:\Users\lawso\MyFirstWebApp\obj\Debug\net9.0\ref\MyFirstWebApp.dll
+C:\Users\lawso\MyFirstWebApp\obj\Debug\net9.0\MyFirstWebApp.sourcelink.json

@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using MyFirstWebApp.Data;
-using MyFirstWebApp.Models;
+using JournalApp.Data;
+using JournalApp.Models;
 
-namespace MyFirstWebApp.Pages;
+namespace JournalApp.Pages;
 
 public class JournalModel : PageModel
 {
